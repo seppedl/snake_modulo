@@ -9,7 +9,7 @@ let apple_y = 0
 let y = 0
 let x = 0
 let richting = 0
-game.setScore(2)
+let score = 2
 let punten_x = [2, 3]
 let punten_y = [2, 2]
 richting = randint(0, 3)
@@ -31,6 +31,7 @@ basic.forever(function () {
     }
     for (let index = 0; index <= punten_x.length; index++) {
         if (punten_x[index] == x && punten_y[index] == y) {
+            game.setScore(score)
             game.gameOver()
         }
     }
@@ -39,7 +40,7 @@ basic.forever(function () {
     led.plot(x, y)
     if (x == apple_x && y == apple_y) {
         apple_x = -1
-        game.addScore(1)
+        score += 1
     } else {
         led.unplot(punten_x.pop(), punten_y.pop())
     }
